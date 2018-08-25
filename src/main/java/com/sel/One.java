@@ -1,16 +1,9 @@
 package com.sel;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-
-import static org.junit.Assert.*;
-
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
 public class One {
     public static void main( String[] args ) throws InterruptedException {
@@ -19,15 +12,26 @@ public class One {
 //        WebDriver driver = new ChromeDriver();
 
 //        System.setProperty("webdriver.gecko.driver", "C:/Users/yeswe/geckodriver64.exe");
+//
 //        FirefoxOptions firefoxOptions = new FirefoxOptions();
 //        firefoxOptions.setCapability("marionette", true);
 //        WebDriver driver = new FirefoxDriver(firefoxOptions);
 
-        System.setProperty("webdriver.edge.driver", "C:/Users/yeswe/iedriver.exe");
-        WebDriver driver = new EdgeDriver();
+//        FirefoxProfile prof = new FirefoxProfile();
+//        prof.setPreference("xpinstall.signatures.required", false);
+//        prof.setPreference("toolkit.telemetry.reportingpolicy.firstRun", false);
+//        WebDriver driver = new FirefoxDriver(prof);
 
-//        WebDriver driver = new HtmlUnitDriver();
+//        System.setProperty("webdriver.edge.driver", "C:/Users/yeswe/iedriver.exe");
+//        WebDriver driver = new EdgeDriver();
 
+        WebDriver driver = new HtmlUnitDriver();
+
+        driver.get("https://formy-project.herokuapp.com/fileupload");
+        WebElement fileUploadField = driver.findElement(By.id("file-upload-field"));
+        fileUploadField.sendKeys("file-to-upload.png");
+
+/*
         driver.get("https://formy-project.herokuapp.com/form");
         driver.findElement(By.id("first-name")).sendKeys("John");
         driver.findElement(By.id("last-name")).sendKeys("Doe");
@@ -42,12 +46,6 @@ public class One {
         WebElement alert2 = wait2.until((ExpectedConditions.visibilityOfElementLocated(By.className("alert"))));
         String alertText = alert2.getText();
         assertEquals("The form was successfully submitted!", alertText);
-
-//        driver.get("https://formy-project.herokuapp.com/fileupload");
-//        WebElement fileUploadField = driver.findElement(By.id("file-upload-field"));
-//        fileUploadField.sendKeys("file-to-upload.png");
-
-/*
 
         driver.get("https://formy-project.herokuapp.com/dragdrop");
         WebElement image = driver.findElement(By.id("image"));
@@ -133,8 +131,6 @@ public class One {
         autocompleteResult.click();
 
 */
-
-
         driver.quit();
     }
 }
