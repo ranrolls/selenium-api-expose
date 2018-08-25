@@ -1,15 +1,14 @@
 package com.sel;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 public class One {
-    public static void main( String[] args ) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException {
+//        WebDriver driver = new HtmlUnitDriver();
 
-//        System.setProperty("webdriver.chrome.driver", "C:/Users/yeswe/chromedriver.exe");
-//        WebDriver driver = new ChromeDriver();
+        System.setProperty("webdriver.chrome.driver", "C:/Users/yeswe/chromedriver.exe");
+        WebDriver driver = new ChromeDriver();
 
 //        System.setProperty("webdriver.gecko.driver", "C:/Users/yeswe/geckodriver64.exe");
 //
@@ -18,20 +17,38 @@ public class One {
 //        WebDriver driver = new FirefoxDriver(firefoxOptions);
 
 //        FirefoxProfile prof = new FirefoxProfile();
-//        prof.setPreference("xpinstall.signatures.required", false);
-//        prof.setPreference("toolkit.telemetry.reportingpolicy.firstRun", false);
-//        WebDriver driver = new FirefoxDriver(prof);
+//        FirefoxProfile fp = new FirefoxProfile();
+//        fp.setPreference("browser.startup.homepage", "about:blank");
+//        fp.setPreference("startup.homepage_welcome_url", "about:blank");
+//        fp.setPreference("startup.homepage_welcome_url.additional", "about:blank");
+//        fp.setPreference("xpinstall.signatures.required", false);
+//        fp.setPreference("toolkit.telemetry.reportingpolicy.firstRun", false);
+//        fp.setPreference("toolkit.telemetry.archive.enabled", false);
+//        fp.setPreference("toolkit.telemetry.enabled", false);
+//        fp.setPreference("toolkit.telemetry.rejected", true);
+//        fp.setPreference("toolkit.telemetry.server", "<blank>");
+//        fp.setPreference("toolkit.telemetry.unified", false);
+//        fp.setPreference("toolkit.telemetry.unifiedIsOptIn", false);
+//        fp.setPreference("toolkit.telemetry.prompted", 2);
+//        fp.setPreference("toolkit.telemetry.rejected", true);
+//        fp.setPreference("browser.urlbar.timesBeforeHidingSuggestionsHint", 0);
+//        fp.setPreference("datareporting.policy.dataSubmissionPolicyAcceptedVersion", 2);
+//        fp.setPreference("datareporting.policy.dataSubmissionPolicyNotifiedTime", "9000000000000");
+//        fp.setPreference("datareporting.healthreport.uploadEnabled", false);
+//        fp.setPreference("datareporting.healthreport.service.enabled", false);
+//        fp.setPreference("datareporting.healthreport.service.firstRun", false);
+//        WebDriver driver = new FirefoxDriver(fp);
 
-//        System.setProperty("webdriver.edge.driver", "C:/Users/yeswe/iedriver.exe");
+//        System.setProperty("webdriver.edge.driver", "C:/Users/yeswe/edgedriver.exe");
 //        WebDriver driver = new EdgeDriver();
 
-        WebDriver driver = new HtmlUnitDriver();
+        driver.get("https://bing.com");
 
+/*
         driver.get("https://formy-project.herokuapp.com/fileupload");
         WebElement fileUploadField = driver.findElement(By.id("file-upload-field"));
         fileUploadField.sendKeys("file-to-upload.png");
 
-/*
         driver.get("https://formy-project.herokuapp.com/form");
         driver.findElement(By.id("first-name")).sendKeys("John");
         driver.findElement(By.id("last-name")).sendKeys("Doe");
